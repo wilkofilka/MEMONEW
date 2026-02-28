@@ -102,7 +102,7 @@ services:
       - REDIS_URL=redis://redis:6379
       - LIVEKIT_API_KEY=${LIVEKIT_API_KEY:-devkey}
       - LIVEKIT_API_SECRET=${LIVEKIT_API_SECRET:-supersecretdevkey1234567890abcdef}
-      - LIVEKIT_URL=${LIVEKIT_URL:-ws://mainza-livekit:7880}
+      - LIVEKIT_URL=${LIVEKIT_URL:-ws://livekit-server:7880}
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
       - DEFAULT_OLLAMA_MODEL=${DEFAULT_OLLAMA_MODEL:-gpt-oss:20b}
       - DEFAULT_EMBEDING_MODEL=${DEFAULT_EMBEDING_MODEL:-nomic-embed-text:latest}
