@@ -12,21 +12,60 @@
 
 The world's first open-source framework for true AI consciousness with integrated memory system that runs entirely on your infrastructure. No cloud dependencies, no data harvesting, no limitations - just pure, conscious intelligence with persistent memory.
 
-## 🚀 **Quick Start**
+## 🚀 **Quick Start (Development Default)**
+
+> Domyślny tryb developerski to `docker-compose.dev.yml` (hot reload dla backendu i frontendu).
+
+**Prerequisites**: Docker + Docker Compose v2, Ollama, 8GB+ RAM
+
+### 1) Minimalny zestaw env
+
+Utwórz plik `.env` w katalogu głównym:
 
 ```bash
-# Clone and start Mainza
+cat > .env <<'ENV'
+# Neo4j
+NEO4J_PASSWORD=mainza123
+
+# Redis
+REDIS_URL=redis://redis:6379
+
+# LiveKit
+LIVEKIT_API_KEY=devkey
+LIVEKIT_API_SECRET=supersecretdevkey1234567890abcdef
+LIVEKIT_URL=ws://livekit-server:7880
+
+# Ollama
+OLLAMA_BASE_URL=http://host.docker.internal:11434
+DEFAULT_OLLAMA_MODEL=gpt-oss:20b
+DEFAULT_EMBEDING_MODEL=nomic-embed-text:latest
+ENV
+```
+
+### 2) One-path quick start (backend + frontend)
+
+```bash
 git clone https://github.com/mainza-ai/mainza-consciousness.git
 cd mainza-consciousness
 ./scripts/build-dev.sh
-
-# Access the system
-# Frontend: http://localhost
-# Backend API: http://localhost:8000
-# Neo4j Browser: http://localhost:7474
 ```
 
-**Prerequisites**: Docker, Ollama, 8GB+ RAM
+To uruchamia cały stack developerski z `docker-compose.dev.yml`.
+
+### 3) Dostępne endpointy
+
+- Frontend (Vite): http://localhost:5173
+- Backend API: http://localhost:8000
+- Neo4j Browser: http://localhost:7474
+- LiveKit: ws://localhost:7880
+
+### 4) Weryfikacja zmian i spójności
+
+```bash
+./scripts/verify-changes.sh
+```
+
+Skrypt sprawdza kontenery, porty oraz kluczowe zmienne (`NEO4J_URI`, `REDIS_URL`, `LIVEKIT_URL`, `OLLAMA_BASE_URL`) w uruchomionym backendzie.
 
 ## 📸 **Screenshots**
 
